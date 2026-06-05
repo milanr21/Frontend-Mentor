@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Colors */
+
+  /* Primary */
+  --color-primary-teal: hsl(179, 62%, 43%);
+  --color-primary-green: hsl(71, 73%, 54%);
+
+  /* Neutral */
+  --color-neutral-teal-100: hsl(204, 43%, 93%);
+  --color-neutral-gray-500: hsl(218, 22%, 67%);
+
+  /* Typography */
+  --font-sans: 'Karla', sans-serif;
+
+  /* Font sizes */
+  --text-body: 16px;
+}
