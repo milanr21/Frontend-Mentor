@@ -26,6 +26,8 @@ function App() {
 
   const winner = calculateWinner(board);
 
+  const isGameRunning = !!winner;
+
   let status;
 
   if (winner) {
@@ -45,7 +47,11 @@ function App() {
     <div className='bg-black min-h-screen'>
       <div className='text-center space-y-10'>
         <p className='text-3xl  text-white '>{status}</p>
-        <Board board={board} onSquareClick={handleSquareClick} />
+        <Board
+          board={board}
+          onSquareClick={handleSquareClick}
+          isGameRunning={isGameRunning}
+        />
         <button
           className='bg-red-400 px-4 text-xl  py-3 text-white rounded-2xl cursor-pointer'
           onClick={restartGame}
