@@ -6,7 +6,7 @@ interface ContainerProps {
 
 export const Container: React.FC<ContainerProps> = ({ children }) => {
   return (
-    <main className='relative flex items-center justify-center min-h-screen overflow-hidden py-20 lg:py-0'>
+    <main className='relative flex items-center justify-center flex-1 overflow-hidden py-20 lg:py-0'>
       <div className=' -z-10' aria-hidden='true'>
         <div
           className="absolute top-0 left-0 w-full h-90.5    bg-[url('/src/assets/images/bg-pattern-top-mobile.svg')] 
