@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Colors */
+
+  /* Primary */
+  --color-primary-red: hsl(0, 78%, 62%);
+  --color-primary-cyan: hsl(180, 62%, 55%);
+  --color-primary-orange: hsl(34, 97%, 64%);
+  --color-primary-blue: hsl(212, 86%, 64%);
+
+  /* Neutral */
+  --color-neutral-grey-500: hsl(234, 12%, 34%);
+  --color-neutral-grey-400: hsl(212, 6%, 44%);
+  --color-neutral-white: hsl(0, 0%, 100%);
+
+  /* Typography */
+  --font-sans: 'Poppins', sans-serif;
+
+  /* Font sizes */
+  --text-body: 15px;
+}
