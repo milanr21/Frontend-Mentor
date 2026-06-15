@@ -66,20 +66,20 @@ const cardData = [
     borderColor: 'border-t-primary-blue',
     wrapperClass:
       'md:row-span-2 flex justify-center md:justify-start items-center',
-    cardClass: 'w-87.5',
+    cardClass: 'h-56 w-3/4',
   },
 ];
 
 const CardGrid = () => {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
+    <div className='grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-8 md:gap-x-8 md:gap-y-0'>
       {/* first column */}
       <div className={cardData[0].wrapperClass}>
         <Card {...cardData[0]} className={cardData[0].cardClass} />
       </div>
 
       {/* second column */}
-      <div className='inline-flex flex-col space-y-8 items-center'>
+      <div className='inline-flex flex-col  space-y-8 items-center'>
         <Card {...cardData[1]} className={cardData[1].cardClass} />
         <Card {...cardData[2]} className={cardData[2].cardClass} />
       </div>

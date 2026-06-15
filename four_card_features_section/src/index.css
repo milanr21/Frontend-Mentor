@@ -14,8 +14,14 @@
   --color-neutral-grey-400: hsl(212, 6%, 44%);
   --color-neutral-white: hsl(0, 0%, 100%);
 
+  /* Spacing */
+  --spacing-87_5: 350px;
+
   /* Typography */
   --font-sans: 'Poppins', sans-serif;
+  --font-weight-light: 200;
+  --font-weight-regular: 400;
+  --font-weight-semi-bold: 600;
 
   /* Font sizes */
   --text-body: 15px;
