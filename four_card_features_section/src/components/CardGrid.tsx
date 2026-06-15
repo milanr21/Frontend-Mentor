@@ -39,7 +39,7 @@ const cardData = [
     borderColor: 'border-t-primary-cyan',
     wrapperClass:
       'md:row-span-2 flex items-center justify-center md:justify-end',
-    cardClass: 'h-56 w-3/4',
+    cardClass: 'w-87.5',
   },
   {
     title: 'Team Builder',
@@ -66,7 +66,7 @@ const cardData = [
     borderColor: 'border-t-primary-blue',
     wrapperClass:
       'md:row-span-2 flex justify-center md:justify-start items-center',
-    cardClass: 'h-56 w-3/4',
+    cardClass: 'w-87.5',
   },
 ];
 
