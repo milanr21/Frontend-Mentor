@@ -17,3 +17,41 @@
   /* Font sizes */
   --text-body: 16px;
 }
+
+@layer base {
+  html,
+  body {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    background-color: var(--color-neutral-teal-100);
+    font-family: var(--font-sans);
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+}
+
+.attribution {
+  padding: 0.75rem 0;
+  font-size: clamp(0.7rem, 2vw, 0.85rem);
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
