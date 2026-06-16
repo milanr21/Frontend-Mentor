@@ -1,55 +1,58 @@
 import React from 'react';
 import Image from 'next/image';
-import perfomueImg from '@/images/image-product-desktop.jpg';
-import addCartIcon from '@/images/icon-cart.svg';
+import desktopImg from '@/images/image-product-desktop.jpg';
 import mobileImg from '@/images/image-product-mobile.jpg';
+import addCartIcon from '@/images/icon-cart.svg';
 
 const Card = () => {
   return (
-    <div className='flex items-center justify-end min-h-screen bg-red-200 '>
-      <div className='max-w-xl px-6  md:px-1  mx-auto'>
-        <div className=' bg-white rounded-l-lg rounded-r-lg flex flex-col   md:flex-row'>
-          <div className='   '>
-            <Image
-              src={mobileImg}
-              alt='perfomueImg'
-              className=' h-[20rem] object-cover  md:h-full rounded-t-lg md:rounded-l-lg  '
-            />
-          </div>
+    <article className='max-w-[340px] md:max-w-2xl w-full bg-neutral-white rounded-lg flex flex-col md:flex-row overflow-hidden shadow-lg'>
+      <div className='relative w-full md:w-1/2 h-60 md:h-auto bg-neutral-white'>
+        <Image
+          src={desktopImg}
+          alt='Product image for desktop'
+          className='hidden md:block object-cover'
+          fill
+          priority
+        />
 
-          <div className='flex flex-col rounded-r-lg  gap-5 p-4'>
-            <h4 className='upppercase md:text-lg text-base font-normal tracking-widest text-gray-600 '>
-              Perfume
-            </h4>
+        <Image
+          src={mobileImg}
+          alt='Product image for mobile'
+          className='md:hidden object-contain'
+          fill
+          priority
+        />
+      </div>{' '}
+      {/* Image container */}
+      {/* Content container */}
+      <div className='flex flex-col gap-4 p-6 md:p-8 md:w-1/2'>
+        <p className='uppercase tracking-[0.2em] text-xs text-neutral-grey font-medium'>
+          Perfume
+        </p>
 
-            <h2 className='text-xl md:text-3xl font-bold max-w-52   '>
-              Gabrielle Essence Eau De Parfum
-            </h2>
+        <h1 className='text-3xl md:text-4xl font-bold text-neutral-black leading-tight'>
+          Gabrielle Essence Eau De Parfum
+        </h1>
 
-            <p className='text-sm text-gray-500 md:text-base'>
-              A floral, solar and voluptuous interpretation composed by Olivier
-              Polge, Perfumer-Creator for the House of CHANEL.
-            </p>
+        <p className='text-neutral-grey text-sm md:text-base leading-relaxed'>
+          A floral, solar and voluptuous interpretation composed by Olivier
+          Polge, Perfumer-Creator for the House of CHANEL.
+        </p>
 
-            <p className='flex flex-row gap-5'>
-              <span className='text-2xl md:text-3xl font-bold text-green-800 '>
-                $149.99
-              </span>
-
-              <span className=' text-sm text-gray-600  md:text-base line-through   '>
-                $169.99
-              </span>
-            </p>
-
-            <button className='flex text-white bg-green-900 rounded-lg flex-row w-48 px-8 py-2   justify-between'>
-              <Image src={addCartIcon} alt='addCartIcon' />
-
-              <span>Add to card</span>
-            </button>
-          </div>
+        <div className='flex items-center gap-4'>
+          <span className='text-3xl font-bold text-green-500'>$149.99</span>
+          <span className='text-sm text-neutral-grey line-through'>
+            $169.99
+          </span>
         </div>
+
+        <button className='flex items-center justify-center gap-2 w-full bg-green-500 text-neutral-white rounded-lg py-3 font-bold hover:bg-green-700 transition-colors'>
+          <Image src={addCartIcon} alt='' aria-hidden='true' />
+          <span>Add to Cart</span>
+        </button>
       </div>
-    </div>
+    </article>
   );
 };
 
