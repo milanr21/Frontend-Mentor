@@ -1,6 +1,8 @@
-const SedansIcon = () => {
+import type { SVGProps } from 'react';
+
+const SedansIcon = ({ width = '64', height = '40', ...props }: SVGProps<SVGSVGElement>) => {
   return (
-    <svg width='64' height='40' xmlns='http://www.w3.org/2000/svg'>
+    <svg width={width} height={height} viewBox="0 0 64 40" xmlns='http://www.w3.org/2000/svg' {...props}>
       <g fill='none' fill-rule='evenodd'>
         <circle fill='#000' opacity='.201' cx='20' cy='20' r='20' />
         <path
