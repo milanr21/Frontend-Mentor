@@ -15,7 +15,7 @@ const Card = () => {
         <h1 className='text-lg font-bold leading-tight px-4'>
           Improve your front-end skills by building project
         </h1>
-        <p className='text-sm leading-relaxed text-slate-500 px-4'>
+        <p className='text-sm leading-relaxed text-slate-600 px-4'>
           Scan the QR code to visit Frontend Mentor and take your coding skills
           to the next level
         </p>
