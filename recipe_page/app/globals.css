@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply text-[16px] leading-relaxed;
+    @apply text-base leading-relaxed;
   }
 
   h1, h2, h3 {

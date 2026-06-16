@@ -16,7 +16,7 @@ export default function Recipe() {
             <div className='relative aspect-[656/300] md:rounded-[12px] overflow-hidden'>
               <Image
                 src={omeletteImg}
-                alt='Simple Omelette'
+                alt='Golden brown omelette folded on a white plate, garnished with fresh herbs'
                 fill
                 className='object-cover'
                 priority
@@ -24,8 +24,8 @@ export default function Recipe() {
             </div>
           </div>
 
-          <div className='p-8 md:px-10 md:pb-10 md:pt-0'>
-            <h1 className='text-3xl md:text-[40px] leading-tight font-serif text-stone-900 mb-6'>
+          <article className='p-8 md:px-10 md:pb-10 md:pt-0'>
+            <h1 className='text-3xl md:text-[2.5rem] leading-tight font-serif text-stone-900 mb-6'>
               Simple Omelette Recipe
             </h1>
             <p className='text-stone-600 mb-8'>
@@ -38,10 +38,13 @@ export default function Recipe() {
               <h2 className='text-xl font-outfit font-bold text-rose-800 mb-4'>
                 Preparation time
               </h2>
-              <ul className='space-y-3'>
+              <ul className='space-y-3' role='list'>
                 {preparationTimeData.map((item, index) => (
                   <li key={index} className='flex items-start'>
-                    <span className='inline-block w-1 h-1 rounded-full bg-rose-800 mt-[10px] mr-4 shrink-0' />
+                    <span
+                      className='inline-block w-1 h-1 rounded-full bg-rose-800 mt-[10px] mr-4 shrink-0'
+                      aria-hidden='true'
+                    />
                     <p className='text-stone-600'>
                       <strong className='font-bold text-stone-600'>
                         {item.label}:
@@ -54,13 +57,16 @@ export default function Recipe() {
             </section>
 
             <section className='mb-8 pb-8 border-b border-stone-150'>
-              <h2 className='text-[28px] font-serif text-brown-800 mb-6'>
+              <h2 className='text-[1.75rem] font-serif text-brown-800 mb-6'>
                 Ingredients
               </h2>
-              <ul className='space-y-2 px-2'>
+              <ul className='space-y-2 px-2' role='list'>
                 {ingredientsData.map((item, index) => (
                   <li key={index} className='flex items-start'>
-                    <span className='inline-block w-1.5 h-1.5 rounded-full bg-brown-800 mt-[10px] mr-6 shrink-0' />
+                    <span
+                      className='inline-block w-1.5 h-1.5 rounded-full bg-brown-800 mt-[10px] mr-6 shrink-0'
+                      aria-hidden='true'
+                    />
                     <p className='text-stone-600'>{item.name}</p>
                   </li>
                 ))}
@@ -68,13 +74,19 @@ export default function Recipe() {
             </section>
 
             <section className='mb-8 pb-8 border-b border-stone-150'>
-              <h2 className='text-[28px] font-serif text-brown-800 mb-6'>
+              <h2 className='text-[1.75rem] font-serif text-brown-800 mb-6'>
                 Instructions
               </h2>
-              <ol className='space-y-2 list-none counter-reset-instructions'>
+              <ol
+                className='space-y-2 list-none counter-reset-instructions'
+                role='list'
+              >
                 {omeletteRecipe.map((item, index) => (
                   <li key={index} className='flex items-start group'>
-                    <span className='text-brown-800 font-bold mr-4 w-4 shrink-0'>
+                    <span
+                      className='text-brown-800 font-bold mr-4 w-4 shrink-0'
+                      aria-hidden='true'
+                    >
                       {index + 1}.
                     </span>
                     <p className='text-stone-600'>
@@ -89,32 +101,32 @@ export default function Recipe() {
             </section>
 
             <section>
-              <h2 className='text-[28px] font-serif text-brown-800 mb-6'>
+              <h2 className='text-[1.75rem] font-serif text-brown-800 mb-6'>
                 Nutrition
               </h2>
               <p className='text-stone-600 mb-6'>
                 The table below shows nutritional values per serving without the
                 additional fillings.
               </p>
-              <div className='space-y-3'>
-                {nutritionalInformation.map((item, index) => (
-                  <div
-                    key={index}
-                    className={`flex items-center px-8 pb-3 ${
-                      index !== nutritionalInformation.length - 1
-                        ? 'border-b border-stone-150'
-                        : ''
-                    }`}
-                  >
-                    <span className='w-1/2 text-stone-600'>{item.type}</span>
-                    <span className='w-1/2 text-brown-800 font-bold'>
-                      {item.value}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              <table className='w-full text-left border-collapse'>
+                <caption className='sr-only'>
+                  Nutritional values per serving
+                </caption>
+                <tbody className='divide-y divide-stone-150'>
+                  {nutritionalInformation.map((item, index) => (
+                    <tr key={index} className='first:pt-0 last:pb-0'>
+                      <td className='py-3 px-8 text-stone-600 w-1/2'>
+                        {item.type}
+                      </td>
+                      <td className='py-3 px-8 text-brown-800 font-bold w-1/2'>
+                        {item.value}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </section>
-          </div>
+          </article>
         </div>
       </div>
     </main>
