@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap');
+
+@import 'tailwindcss';
+
+@theme {
+  /* Typography */
+  --font-sans: 'Barlow', sans-serif;
+  --font-display: 'Fraunces', serif;
+
+  /* Colors */
+  --color-primary-red-400: hsl(7, 99%, 70%);
+  --color-primary-yellow-500: hsl(51, 100%, 49%);
+  --color-primary-green-800: hsl(167, 40%, 24%);
+  --color-primary-blue-800: hsl(198, 62%, 26%);
+  --color-primary-green-500: hsl(167, 34%, 41%);
+
+  --color-neutral-gray-950: hsl(212, 27%, 19%);
+  --color-neutral-gray-600: hsl(213, 9%, 39%);
+  --color-neutral-gray-550: hsl(232, 10%, 55%);
+  --color-neutral-gray-400: hsl(210, 4%, 67%);
+  --color-neutral-white: hsl(0, 100%, 100%);
+
+  /* Font sizes */
+  --text-body: 18px;
+}
+
+@layer base {
+  html,
+  body {
+    min-height: 100svh;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-neutral-white);
+    color: var(--color-neutral-gray-950);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  button {
+    font-family: var(--font-display);
+  }
+
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+}
+
+.attribution {
+  flex-shrink: 0;
+  font-size: clamp(0.7rem, 3vw, 0.75rem);
+  text-align: center;
+  font-weight: bold;
+  background-color: var(--color-neutral-white);
+  color: var(--color-neutral-gray-600);
+}
+
+.attribution a {
+  color: var(--color-primary-blue-800);
+  text-decoration: none;
+}
+
+.attribution a:hover {
+  text-decoration: underline;
+}
