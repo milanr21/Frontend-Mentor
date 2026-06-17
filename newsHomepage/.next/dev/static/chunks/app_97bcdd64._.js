@@ -272,7 +272,6 @@ var _s = __turbopack_context__.k.signature();
 const AppContainer = ({ children })=>{
     _s();
     const [isOpen, setIsOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const isMobile = useMediaQuery('(max-width: 639px)');
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "AppContainer.useEffect": ()=>{
             if (isOpen) {
@@ -295,7 +294,7 @@ const AppContainer = ({ children })=>{
                 setIsOpen: setIsOpen
             }, void 0, false, {
                 fileName: "[project]/app/AppContainer.tsx",
-                lineNumber: 31,
+                lineNumber: 28,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -304,12 +303,12 @@ const AppContainer = ({ children })=>{
                     children: children
                 }, void 0, false, {
                     fileName: "[project]/app/AppContainer.tsx",
-                    lineNumber: 33,
+                    lineNumber: 30,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/app/AppContainer.tsx",
-                lineNumber: 32,
+                lineNumber: 29,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
@@ -324,7 +323,7 @@ const AppContainer = ({ children })=>{
                         children: "Frontend Mentor"
                     }, void 0, false, {
                         fileName: "[project]/app/AppContainer.tsx",
-                        lineNumber: 37,
+                        lineNumber: 34,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     ". Coded by",
@@ -335,24 +334,24 @@ const AppContainer = ({ children })=>{
                         children: "Milan Rawal"
                     }, void 0, false, {
                         fileName: "[project]/app/AppContainer.tsx",
-                        lineNumber: 45,
+                        lineNumber: 42,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     "."
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/AppContainer.tsx",
-                lineNumber: 35,
+                lineNumber: 32,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/AppContainer.tsx",
-        lineNumber: 26,
+        lineNumber: 23,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(AppContainer, "wQchtiy7C1UaYwjhjaAs2W8iWVw=", true);
+_s(AppContainer, "vl0Rt3/A8evyRPW1OQ1AhRk4UhU=");
 _c = AppContainer;
 const __TURBOPACK__default__export__ = AppContainer;
 var _c;
