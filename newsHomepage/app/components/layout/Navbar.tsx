@@ -47,6 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({ isOpen, setIsOpen }) => {
             <div
               id='mobile-menu'
               className='fixed top-0 right-0 w-[70%] h-full bg-off-white text-center z-50 flex flex-col'
+              onClick={(e) => e.stopPropagation()}
             >
               <div className='flex justify-end p-4'>
                 <button

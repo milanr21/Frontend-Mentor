@@ -10,19 +10,25 @@ interface AppContainerProps {
 const AppContainer: React.FC<AppContainerProps> = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const isMobile = useMediaQuery('(max-width: 700px)');
+  const isMobile = useMediaQuery('(max-width: 767px)');
+
+  useEffect(() => {
+    if (!isMobile && isOpen) {
+      setIsOpen(false);
+    }
+  }, [isMobile, isOpen]);
 
   const shouldAllowOpen = isMobile && isOpen;
 
   useEffect(() => {
-    if (isOpen) {
+    if (shouldAllowOpen) {
       document.body.classList.add('overflow-hidden');
     } else {
       document.body.classList.remove('overflow-hidden');
     }
 
     return () => document.body.classList.remove('overflow-hidden');
-  }, [isOpen]);
+  }, [shouldAllowOpen]);
 
   return (
     <div
