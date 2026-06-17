@@ -47,9 +47,12 @@
   h4,
   h5,
   h6,
-  p,
   button {
     font-family: var(--font-display);
+  }
+
+  p {
+    font-family: var(--font-sans);
   }
 
   .app-container {
@@ -61,10 +64,9 @@
 
 .attribution {
   flex-shrink: 0;
-  font-size: clamp(0.7rem, 3vw, 0.75rem);
+  font-size: clamp(0.9rem, 3vw, 0.75rem);
   text-align: center;
-  font-weight: bold;
-  background-color: var(--color-neutral-white);
+  font-weight: bolder;
   color: var(--color-neutral-gray-600);
 }
 
