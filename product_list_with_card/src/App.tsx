@@ -1,28 +1,30 @@
-import MenuItemCard from './components/MenuItemCard';
+import CartItems from './components/CartItems';
+import MenuItems from './components/MenuItems';
 
 function App() {
   return (
-    <div
-      className='
-    max-w-3xl  items-center m-auto
-    '
-    >
-      <div className='flex flex-col  py-6 px-4 gap-4'>
-        <div className=' flex text-left text-4xl font-semibold'>
-          <h1>Desserts</h1>
-        </div>
-        <div>
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-            <MenuItemCard />
-            <MenuItemCard />
-            <MenuItemCard />
-            <MenuItemCard />
-            <MenuItemCard />
-            <MenuItemCard />
-            <MenuItemCard />
-            <MenuItemCard />
-            <MenuItemCard />
+    <div className='p-14'>
+      {/* <MenuItems /> */}
+
+      <div className='grid grid-cols-4 gap-6'>
+        <div className='col-span-3'>
+          <div className='grid grid-cols-3 '>
+            <div className='col-span-1'>
+              {' '}
+              <MenuItems />
+            </div>
+            <div className='col-span-1'>
+              {' '}
+              <MenuItems />
+            </div>
+            <div className='col-span-1'>
+              {' '}
+              <MenuItems />
+            </div>
           </div>
+        </div>
+        <div className='col-span-1'>
+          <CartItems />
         </div>
       </div>
     </div>
