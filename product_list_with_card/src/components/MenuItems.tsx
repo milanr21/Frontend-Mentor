@@ -1,52 +1,82 @@
-import waffleThumbnail from '../assets/images/image-waffle-thumbnail.jpg';
-
-import waffleMobile from '../assets/images/image-waffle-mobile.jpg';
-import waffleTablet from '../assets/images/image-waffle-tablet.jpg';
-import waffleDesktop from '../assets/images/image-waffle-desktop.jpg';
 import ImgIconAddToCart from '../assets/images/icon-add-to-cart.svg';
 
-export type MenuItemsProps = {
+export type Product = {
+  id: number;
   name: string;
   description: string;
   price: number;
-  mobileImg: string;
-  tableImg: string;
-  desktopImg: string;
-  handleCardItems?: () => void;
+  image: {
+    mobile: string;
+    tablet: string;
+    desktop: string;
+  };
+};
+
+export type MenuItemsProps = Product & {
+  isItemMore: boolean;
+  quantity: number;
+  handleAddItems?: () => void;
+  handleRemoveItems?: () => void;
 };
 
 const MenuItems = ({
-  mobileImg,
-  tableImg,
-  desktopImg,
+  id,
+  image,
   name,
   description,
   price,
-  handleCardItems,
+  isItemMore,
+  quantity,
+  handleAddItems,
+  handleRemoveItems,
 }: MenuItemsProps) => {
   return (
-    <div>
+    <div key={id}>
       <div className='relative w-54 mb-8'>
         <picture>
-          <source media='(min-width: 1024px)' srcSet={desktopImg} />
-          <source media='(min-width: 768px)' srcSet={tableImg} />
+          <source media='(min-width: 1024px)' srcSet={image.desktop} />
+          <source media='(min-width: 768px)' srcSet={image.tablet} />
 
           <img
-            src={mobileImg}
+            src={image.mobile}
             alt='Waffle with berries'
             className='h-56 w-full object-cover rounded-lg'
           />
         </picture>
-        <button
-          onClick={handleCardItems}
-          className='flex flex-row items-center justify-center
+
+        {isItemMore ? (
+          <button
+            className='flex flex-row items-center justify-evenly
+        border-1 w-2/3 absolute left-1/2 bottom-0 text-rose-50 
+       -translate-x-1/2 translate-y-1/2 bg-red py-2 font-semibold rounded-3xl gap-2 cursor-pointer
+     '
+          >
+            <span
+              onClick={handleAddItems}
+              className='border-1 border-rose-50 rounded-full h-4 w-4 flex text-center items-center justify-center'
+            >
+              +
+            </span>
+            <span className=''>{quantity}</span>
+            <span
+              onClick={handleRemoveItems}
+              className='border-1 border-rose-50 rounded-full h-4 w-4 flex text-center items-center justify-center'
+            >
+              -
+            </span>
+          </button>
+        ) : (
+          <button
+            onClick={handleAddItems}
+            className='flex flex-row items-center justify-center
           border-rose-500 border-1 w-2/3 absolute left-1/2 bottom-0
           -translate-x-1/2 translate-y-1/2 bg-rose-50 py-2 rounded-3xl gap-2 cursor-pointer
         '
-        >
-          <img src={ImgIconAddToCart} alt='add_to_cart' />
-          <span className='font-semibold'>Add to Card</span>
-        </button>
+          >
+            <img src={ImgIconAddToCart} alt='add_to_cart' />
+            <span className='font-semibold'>Add to Card</span>
+          </button>
+        )}
       </div>
       <div className='space-y-1'>
         <p className='text-rose-400'>{name}</p>

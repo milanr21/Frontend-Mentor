@@ -1,66 +1,57 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import CartItems from './components/CartItems';
 import MenuItems from './components/MenuItems';
 import recipeData from './data/recipe.json';
+import { AppContext } from './context/AppContext';
 
 function App() {
-  const [cart, setCart] = useState(() => {
-    const stored = localStorage.getItem('cart');
-    return stored ? JSON.parse(stored) : [];
-  });
+  const { cart, dispatch } = useContext(AppContext);
 
-  const handleAddToCart = (product: any) => {
-    setCart((prev) => {
-      const existingItem = prev.find((item) => item.id === product.id);
+  const cartMap = new Map(cart.map((item) => [item.id, item]));
 
-      let updatedCart;
+  const handleCartItems = (product: any) => {
+    dispatch({
+      type: 'ADD_ITEM',
+      payload: product,
+    });
+  };
 
-      if (existingItem) {
-        updatedCart = prev.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
-      } else {
-        updatedCart = [
-          ...prev,
-          {
-            ...product,
-            quantity: 1,
-          },
-        ];
-      }
-
-      localStorage.setItem('cart', JSON.stringify(updatedCart));
-
-      return updatedCart;
+  const handleRemoveItem = (id: number) => {
+    dispatch({
+      type: 'REMOVE_ITEM',
+      payload: id,
     });
   };
 
   return (
     <div className='p-14'>
-      {/* <MenuItems /> */}
-
       <div className='grid grid-cols-4 gap-6'>
         <div className=' col-span-4 md:col-span-3'>
           <div className='grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1'>
-            {recipeData.map((item) => (
-              <div key={item.id} className='col-span-1'>
-                <MenuItems
-                  name={item.name}
-                  price={item.price}
-                  description={item.category}
-                  desktopImg={item.image.desktop}
-                  mobileImg={item.image.mobile}
-                  tableImg={item.image.tablet}
-                  handleCardItems={() => handleAddToCart(item)}
-                />
-              </div>
-            ))}
+            {recipeData.map((item) => {
+              const cartItem = cartMap.get(item.id);
+              const isItemMore = !!cartItem;
+
+              return (
+                <div key={item.id} className='col-span-1'>
+                  <MenuItems
+                    id={item.id}
+                    name={item.name}
+                    price={item.price}
+                    description={item.category}
+                    image={item.image}
+                    isItemMore={isItemMore}
+                    quantity={cartItem ? cartItem?.quantity : 0}
+                    handleAddItems={() => handleCartItems(item)}
+                    handleRemoveItems={() => handleRemoveItem(item.id)}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
         <div className='col-span-4 md:col-span-2 lg:col-span-1'>
-          <CartItems cart={cart ?? []} />
+          <CartItems />
         </div>
       </div>
     </div>
