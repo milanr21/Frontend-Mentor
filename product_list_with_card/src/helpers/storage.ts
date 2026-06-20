@@ -27,3 +27,11 @@ export const saveCartToStorage = (item: CartItem[]) => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(item));
   } catch (err) {}
 };
+
+export const removeCartFromStorage = () => {
+  if (typeof window === 'undefined') return;
+
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch (err) {}
+};

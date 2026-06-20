@@ -1,16 +1,18 @@
 import { createContext, type Dispatch } from 'react';
-import type { Product } from '../components/MenuItems';
+import type { Product } from '../components/types/types';
 
 export type CartItem = Product & {
   quantity: number;
 };
 
-type AppState = {
+export type AppState = {
   cart: CartItem[];
+  isOpen: boolean;
 };
 
 export const initialState: AppState = {
   cart: [],
+  isOpen: false,
 };
 
 type AppContextType = AppState & {

@@ -1,5 +1,5 @@
 import type React from 'react';
-import { initialState, AppContext } from './AppContext';
+import { initialState, AppContext, type AppState } from './AppContext';
 import { useEffect, useReducer } from 'react';
 import { loadCartToStorage, saveCartToStorage } from '../helpers/storage';
 
@@ -51,13 +51,32 @@ const AppReducer = (state: typeof initialState, action: any) => {
           .filter((item) => item.quantity > 0),
       };
 
+    case 'OPEN_MODAL':
+      return {
+        ...state,
+        isOpen: true,
+      };
+
+    case 'CLOSE_MODAL':
+      return {
+        ...state,
+        isOpen: false,
+      };
+
+    case 'CLEAR_CART':
+      return {
+        ...state,
+        cart: [],
+      };
+
     default:
       return state;
   }
 };
 
-const init = () => ({
+const init = (): AppState => ({
   cart: loadCartToStorage(),
+  isOpen: false,
 });
 
 export const AppProvider = ({ children }: { children: React.ReactNode }) => {
