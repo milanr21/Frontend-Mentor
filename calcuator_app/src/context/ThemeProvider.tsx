@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ThemeContext, type Theme } from './ThemeContext';
-import { loadThemeFromStorage, saveThemeToStorage } from '../helpers/storage';
+import { loadThemeFromStorage, saveThemeToStorage } from '../utils/storage';
 
 export interface ThemeProviderProps {
   children: React.ReactNode;
